@@ -3,8 +3,6 @@
 Player::Player(QObject *parent)
     : QObject{parent}
 {
-    setFlag(QGraphicsItem::ItemIsFocusable);
-    setFocus();
     timer = new QTimer();
     timer->setInterval(85);
     timer->start();
@@ -36,36 +34,9 @@ Player::Player(QObject *parent)
 }
 
 
-void Player::keyReleaseEvent(QKeyEvent* event){
-    if(event->key() == Qt::Key::Key_S){
-        disconnect(timer,&QTimer::timeout,this,&Player::animateDown);
-    }
-    if(event->key() == Qt::Key::Key_W){
-        disconnect(timer,&QTimer::timeout,this,&Player::animateUp);
-    }
-    if(event->key() == Qt::Key::Key_D){
-        disconnect(timer,&QTimer::timeout,this,&Player::animateSide);
-    }
-    if(event->key() == Qt::Key::Key_A){
-        disconnect(timer,&QTimer::timeout,this,&Player::animateSide);
-    }
-}
-
-
-void Player::keyPressEvent(QKeyEvent* event){
-    if(event->key() == Qt::Key::Key_S){
-        this->moveDown();
-    }
-    if(event->key() == Qt::Key::Key_W){
-        this->moveUp();
-    }
-    if(event->key() == Qt::Key::Key_D){
-        this->moveRight();
-    }
-    if(event->key() == Qt::Key::Key_A){
-        this->moveLeft();
-    }
-}
+void Player::stopUp(){disconnect(timer,&QTimer::timeout,this,&Player::animateUp);}
+void Player::stopDown(){disconnect(timer,&QTimer::timeout,this,&Player::animateDown);}
+void Player::stopSide(){disconnect(timer,&QTimer::timeout,this,&Player::animateSide);}
 
 
 void Player::moveDown(){

@@ -4,14 +4,14 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include "player.h"
+#include "controller.h"
 
 
 class Game : public QGraphicsView
 {
 public:
-    Player* player1;
-    Player* player2;
     QGraphicsScene* scene;
+    Controller* control;
     Game();
 };
 

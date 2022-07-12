@@ -19,6 +19,7 @@ set(PROJECT_SOURCES
         game.h game.cpp
         resource.qrc
         player.h player.cpp
+        controller.h controller.cpp
 
 )
 

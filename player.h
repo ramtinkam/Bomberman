@@ -19,12 +19,13 @@ private:
 
 public:
     Player(QObject *parent = nullptr);
-    void keyPressEvent(QKeyEvent* event);
-    void keyReleaseEvent(QKeyEvent* event);
     void moveDown();
     void moveUp();
     void moveRight();
     void moveLeft();
+    void stopUp();
+    void stopDown();
+    void stopSide();
 
 
 public slots:

@@ -5,8 +5,9 @@ Game::Game()
 {
     showFullScreen();
     scene = new QGraphicsScene(0,0,800,600,this);
-    player1 = new Player();
-    scene->addItem(player1);
+    control = new Controller;
+    scene->addItem(control);
+    scene->addItem(control->player1);
     setScene(scene);
 
 }
