@@ -5,6 +5,7 @@
 #include <QGraphicsView>
 #include "player.h"
 #include "controller.h"
+#include "wall.h"
 
 
 class Game : public QGraphicsView
@@ -12,6 +13,7 @@ class Game : public QGraphicsView
 public:
     QGraphicsScene* scene;
     Controller* control;
+    QList<Wall*> walls{};
     Game();
 };
 

@@ -20,6 +20,7 @@ set(PROJECT_SOURCES
         resource.qrc
         player.h player.cpp
         controller.h controller.cpp
+        wall.h wall.cpp
 
 )
 

@@ -7,6 +7,7 @@
 #include <QKeyEvent>
 #include <QList>
 #include <QTimer>
+#include "wall.h"
 
 class Player : public QObject, public QGraphicsPixmapItem
 {
@@ -19,6 +20,8 @@ private:
 
 public:
     Player(QObject *parent = nullptr);
+    ~Player();
+    void paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget);
     void moveDown();
     void moveUp();
     void moveRight();
@@ -26,6 +29,9 @@ public:
     void stopUp();
     void stopDown();
     void stopSide();
+    void handleCollision();
+    double xPrev;
+    double yPrev;
 
 
 public slots:

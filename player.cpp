@@ -33,10 +33,31 @@ Player::Player(QObject *parent)
     setPixmap(*frames.at(0));
 }
 
+Player::~Player(){
+    delete timer;
+    qDeleteAll(frames);
+}
+
+
+void Player::paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget){
+    QGraphicsPixmapItem::paint(painter,option,widget);
+
+
+}
+
 
 void Player::stopUp(){disconnect(timer,&QTimer::timeout,this,&Player::animateUp);}
 void Player::stopDown(){disconnect(timer,&QTimer::timeout,this,&Player::animateDown);}
 void Player::stopSide(){disconnect(timer,&QTimer::timeout,this,&Player::animateSide);}
+
+void Player::handleCollision()
+{
+    for(QGraphicsItem* item: collidingItems()){
+        if(typeid(*item)==typeid(Wall)){
+            this->setPos(xPrev,yPrev);
+        }
+    }
+}
 
 
 void Player::moveDown(){

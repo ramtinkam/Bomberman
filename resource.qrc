@@ -24,6 +24,9 @@
         <file>sprites/Bman_S_f02.png</file>
         <file>sprites/Bman_S_f01.png</file>
         <file>sprites/Bman_S_f00.png</file>
+        <file>sprites/BackgroundTile.png</file>
+        <file>sprites/SolidBlock.png</file>
+        <file>sprites/ExplodableBlock.png</file>
     </qresource>
     <qresource prefix="/sound"/>
 </RCC>

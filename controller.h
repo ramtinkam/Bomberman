@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QGraphicsItem>
 #include "player.h"
+#include "wall.h"
 
 class Controller: public QGraphicsPixmapItem
 {
@@ -15,6 +16,7 @@ public:
     void keyReleaseEvent(QKeyEvent* event);
     Player* player1;
     Player* player2;
+
 
 };
 
