@@ -3,9 +3,12 @@
 Player::Player(QObject *parent)
     : QObject{parent}
 {
+    canPlaceBomb = true;
     timer = new QTimer();
+    bombTimer = new QTimer();
     timer->setInterval(85);
     timer->start();
+    connect(bombTimer,&QTimer::timeout,this,&Player::bombCooldown);
     frames.append(new QPixmap(":/img/sprites/Bman_F_f00.png"));
     frames.append(new QPixmap(":/img/sprites/Bman_F_f01.png"));
     frames.append(new QPixmap(":/img/sprites/Bman_F_f02.png"));
@@ -35,14 +38,8 @@ Player::Player(QObject *parent)
 
 Player::~Player(){
     delete timer;
+    delete bombTimer;
     qDeleteAll(frames);
-}
-
-
-void Player::paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget){
-    QGraphicsPixmapItem::paint(painter,option,widget);
-
-
 }
 
 
@@ -57,6 +54,25 @@ void Player::handleCollision()
             this->setPos(xPrev,yPrev);
         }
     }
+}
+
+void Player::placeBomb()
+{
+    if(canPlaceBomb){
+        bomb=new Bomb;
+        bomb->setPos(x(),y()+64);
+        scene()->addItem(bomb);
+        canPlaceBomb = false;
+        bombTimer->setInterval(3000);
+        bombTimer->start();
+    }
+}
+
+void Player::bombCooldown()
+{
+    canPlaceBomb = true;
+    bombTimer->stop();
+    delete bomb;
 }
 
 

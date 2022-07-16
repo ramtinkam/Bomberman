@@ -3,11 +3,13 @@
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QKeyEvent>
 #include <QList>
 #include <QTimer>
 #include "wall.h"
+#include "bomb.h"
 
 class Player : public QObject, public QGraphicsPixmapItem
 {
@@ -17,11 +19,13 @@ private:
     QList<QPixmap*> frames{};
     int frame{};
     QTimer* timer;
+    QTimer* bombTimer;
+    bool canPlaceBomb;
+    Bomb* bomb;
 
 public:
     Player(QObject *parent = nullptr);
     ~Player();
-    void paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget);
     void moveDown();
     void moveUp();
     void moveRight();
@@ -30,14 +34,17 @@ public:
     void stopDown();
     void stopSide();
     void handleCollision();
+    void placeBomb();
     double xPrev;
     double yPrev;
 
 
 public slots:
+    void bombCooldown();
     void animateDown();
     void animateUp();
     void animateSide();
+
 
 };
 

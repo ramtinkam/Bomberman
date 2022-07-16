@@ -27,6 +27,9 @@
         <file>sprites/BackgroundTile.png</file>
         <file>sprites/SolidBlock.png</file>
         <file>sprites/ExplodableBlock.png</file>
+        <file>sprites/Bomb_f03.png</file>
+        <file>sprites/Bomb_f02.png</file>
+        <file>sprites/Bomb_f01.png</file>
     </qresource>
     <qresource prefix="/sound"/>
 </RCC>

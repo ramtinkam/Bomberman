@@ -21,6 +21,7 @@ set(PROJECT_SOURCES
         player.h player.cpp
         controller.h controller.cpp
         wall.h wall.cpp
+        bomb.h bomb.cpp
 
 )
 

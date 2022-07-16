@@ -36,6 +36,9 @@ void Controller::keyPressEvent(QKeyEvent* event){
     if(event->key() == Qt::Key::Key_A){
         player1->moveLeft();
     }
+    if(event->key() == Qt::Key::Key_Space){
+        player1->placeBomb();
+    }
     player1->handleCollision();
     player1->xPrev=player1->pos().x();
     player1->yPrev=player1->pos().y();
