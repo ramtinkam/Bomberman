@@ -17,11 +17,15 @@ class Player : public QObject, public QGraphicsPixmapItem
 
 private:
     QList<QPixmap*> frames{};
+    QList<Flame*> flames{};
     int frame{};
+    int flamenumb;
     QTimer* timer;
     QTimer* bombTimer;
+    QTimer* flameTimer;
     bool canPlaceBomb;
     Bomb* bomb;
+
 
 public:
     Player(QObject *parent = nullptr);
@@ -38,14 +42,12 @@ public:
     double xPrev;
     double yPrev;
 
-
 public slots:
+    void deleteFlames();
     void bombCooldown();
     void animateDown();
     void animateUp();
     void animateSide();
-
-
 };
 
 #endif // PLAYER_H

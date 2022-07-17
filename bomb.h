@@ -5,12 +5,14 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QTimer>
+#include "flame.h"
 
 class Bomb : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     explicit Bomb(QObject *parent = nullptr);
+    ~Bomb();
 
 private:
     QList<QPixmap*> frames{};
@@ -19,6 +21,7 @@ private:
 
 public slots:
     void animate();
+
 };
 
 #endif // BOMB_H

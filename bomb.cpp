@@ -14,6 +14,13 @@ Bomb::Bomb(QObject *parent)
 
 }
 
+Bomb::~Bomb()
+{
+    qDeleteAll(frames);
+    delete timer;
+
+}
+
 void Bomb::animate()
 {
     setPixmap(*frames.at(++frame));

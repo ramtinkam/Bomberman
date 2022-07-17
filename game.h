@@ -9,10 +9,12 @@
 #include "controller.h"
 #include "wall.h"
 #include "box.h"
+#include "flame.h"
 
 
-class Game : public QGraphicsView
+class Game :  public QGraphicsView
 {
+
 public:
     QGraphicsScene* scene;
     Controller* control;
@@ -20,6 +22,8 @@ public:
     QList<class Box*> boxes{};
     Game();
     void placeBox();
+public slots:
+
 };
 
 #endif // GAME_H
