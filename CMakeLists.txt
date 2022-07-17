@@ -22,7 +22,7 @@ set(PROJECT_SOURCES
         controller.h controller.cpp
         wall.h wall.cpp
         bomb.h bomb.cpp
-
+        box.h box.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -3,6 +3,7 @@
 
 Game::Game()
 {
+    srand(time(0));
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     showFullScreen();
@@ -71,6 +72,31 @@ Game::Game()
     scene->setBackgroundBrush(QBrush(QImage(":/img/sprites/BackgroundTile.png")));
     control->player1->xPrev=512;
     control->player1->yPrev=128;
+    this->placeBox();
     setScene(scene);
 
+}
+
+void Game::placeBox()
+{
+    int x=512,y=128,r=0;
+    bool flg=true;
+    for(int i=0;i<14;i++){
+        for (int j=0;j<14;j++){
+            for(int l=60;l<76;l++){
+                if(x==walls.at(l)->x() && y==walls.at(l)->y())
+                    flg=false;
+            }
+            if(rand()%2==0 && (x>768 || y>384) && (x<1088 || y<704)  && flg){
+                boxes.append(new class Box);
+                boxes.at(r)->setPos(x,y);
+                scene->addItem(boxes.at(r));
+                r++;
+            }
+            flg=true;
+            x += 64;
+        }
+        x = 512;
+        y += 64;
+    }
 }
