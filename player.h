@@ -28,7 +28,7 @@ private:
 
 
 public:
-    Player(QObject *parent = nullptr);
+    Player(int pi,QObject *parent = nullptr);
     ~Player();
     void moveDown();
     void moveUp();
@@ -36,18 +36,21 @@ public:
     void moveLeft();
     void stopUp();
     void stopDown();
-    void stopSide();
+    void stopRight();
+    void stopLeft();
     void handleCollision();
     void placeBomb();
     double xPrev;
     double yPrev;
+    int playerIndex;
 
 public slots:
     void deleteFlames();
     void bombCooldown();
     void animateDown();
     void animateUp();
-    void animateSide();
+    void animateRight();
+    void animateLeft();
 };
 
 #endif // PLAYER_H

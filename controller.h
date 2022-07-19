@@ -4,7 +4,9 @@
 #include <QKeyEvent>
 #include <QList>
 #include <QTimer>
+#include <QObject>
 #include <QGraphicsItem>
+#include <QGraphicsView>
 #include "player.h"
 #include "wall.h"
 
@@ -16,6 +18,7 @@ public:
     void keyReleaseEvent(QKeyEvent* event);
     Player* player1;
     Player* player2;
+
 
 
 };
