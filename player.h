@@ -41,6 +41,7 @@ public:
     void stopLeft();
     void handleCollision();
     void placeBomb();
+    void decreaseHealth();
     double xPrev;
     double yPrev;
     double health;
@@ -55,6 +56,8 @@ public slots:
     void animateUp();
     void animateRight();
     void animateLeft();
+signals:
+    void gameEnd();
 };
 
 #endif // PLAYER_H

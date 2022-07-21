@@ -28,6 +28,7 @@ set(PROJECT_SOURCES
         textfield.h textfield.cpp
         label.h label.cpp
         button.h button.cpp
+        result.h result.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

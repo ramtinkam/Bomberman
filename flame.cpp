@@ -1,4 +1,5 @@
 #include "flame.h"
+#include "player.h"
 
 //state 1=right 2=left 3=up 4=down
 Flame::Flame(int s, QObject *parent)
@@ -69,6 +70,10 @@ void Flame::checkCollision()
         }
         if(typeid(*item)==typeid(Box)){
             delete item;
+        }
+        if(typeid(*item)==typeid(Player)){
+            delete this;
+            dynamic_cast<Player*>(item)->decreaseHealth();
         }
     }
 }

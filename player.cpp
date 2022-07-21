@@ -102,6 +102,15 @@ void Player::placeBomb()
     }
 }
 
+void Player::decreaseHealth()
+{
+    health--;
+    playerInfo->setPlainText(name+": "+QString::number(health,'f'));
+    if(health==0){
+        emit gameEnd();
+    }
+}
+
 void Player::deleteFlames()
 {
     flames.clear();

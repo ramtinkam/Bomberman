@@ -10,6 +10,7 @@
 #include "wall.h"
 #include "box.h"
 #include "flame.h"
+#include "result.h"
 
 
 class Game :  public QGraphicsView
@@ -23,6 +24,7 @@ public:
     Game();
     void placeBox();
 public slots:
+    void end();
 
 };
 

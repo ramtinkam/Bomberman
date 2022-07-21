@@ -81,6 +81,8 @@ Game::Game()
     control->player2->xPrev=1344;
     control->player2->yPrev=960;
     this->placeBox();
+    connect(control->player1,&Player::gameEnd,this,&Game::end);
+    connect(control->player2,&Player::gameEnd,this,&Game::end);
     setScene(scene);
 
 }
@@ -107,4 +109,17 @@ void Game::placeBox()
         x = 512;
         y += 64;
     }
+}
+
+void Game::end()
+{
+    close();
+    auto resultScreen = new result;
+    if(control->player1->health==0){
+        resultScreen->text->setPlainText(control->player2->name+" is the winner!");
+    }
+    else{
+        resultScreen->text->setPlainText(control->player1->name+" is the winner!");
+    }
+    resultScreen->show();
 }
