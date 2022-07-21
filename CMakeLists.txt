@@ -24,6 +24,10 @@ set(PROJECT_SOURCES
         bomb.h bomb.cpp
         box.h box.cpp
         flame.h flame.cpp
+        home.h home.cpp
+        textfield.h textfield.cpp
+        label.h label.cpp
+        button.h button.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

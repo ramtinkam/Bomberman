@@ -10,6 +10,7 @@
 #include "box.h"
 
 
+
 class Flame : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT

@@ -71,6 +71,10 @@ Game::Game()
     control->player2->setPos(1344,960);
     scene->addItem(control->player1);
     scene->addItem(control->player2);
+    control->player1->playerInfo->setPos(468,32);
+    control->player2->playerInfo->setPos(1300,32);
+    scene->addItem(control->player1->playerInfo);
+    scene->addItem(control->player2->playerInfo);
     scene->setBackgroundBrush(QBrush(QImage(":/img/sprites/BackgroundTile.png")));
     control->player1->xPrev=512;
     control->player1->yPrev=128;

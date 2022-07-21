@@ -10,6 +10,7 @@
 #include <QTimer>
 #include "wall.h"
 #include "bomb.h"
+#include "label.h"
 
 class Player : public QObject, public QGraphicsPixmapItem
 {
@@ -42,7 +43,10 @@ public:
     void placeBomb();
     double xPrev;
     double yPrev;
+    double health;
+    QString name;
     int playerIndex;
+    label* playerInfo;
 
 public slots:
     void deleteFlames();

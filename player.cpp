@@ -3,6 +3,7 @@
 Player::Player(int pi,QObject *parent)
     : QObject{parent}
 {
+    playerInfo = new label;
     playerIndex = pi;
     canPlaceBomb = true;
     timer = new QTimer();
@@ -69,6 +70,7 @@ Player::~Player(){
     delete bombTimer;
     qDeleteAll(frames);
     delete flameTimer;
+    delete playerInfo;
 }
 
 
